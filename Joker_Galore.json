@@ -1,0 +1,17 @@
+{
+  "id": "Joker_Galore",
+  "name": "Joker Galore",
+  "author": [
+    "Robo"
+  ],
+  "description": "It adds New jokers, vouchers, and raritys.",
+  "prefix": "jokergal",
+  "main_file": "main.lua",
+  "version": "1.1.0",
+  "priority": -99999999999999,
+  "badge_colour": "666665",
+  "badge_text_colour": "FFFFFF",
+  "dependencies": [
+    "Steamodded (>=1.0.0~BETA-0827c)"
+  ]
+}
