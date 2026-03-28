@@ -1,0 +1,17 @@
+{
+  "id": "jokergalore",
+  "name": "Joker Galore",
+  "author": [
+    "Robo"
+  ],
+  "description": "A mod that adds stuff to balatro",
+  "prefix": "jokergal",
+  "main_file": "main.lua",
+  "version": "1.0.0",
+  "priority": 0,
+  "badge_colour": "ff00ff",
+  "badge_text_colour": "FFFFFF",
+  "dependencies": [
+    "Steamodded (>=1.0.0~BETA-0827c)"
+  ]
+}
