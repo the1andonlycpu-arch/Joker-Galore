@@ -68,7 +68,7 @@ local NFS = require("nativefs")
 to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
-local jokerIndexList = {7,8,5,9,1,10,4,6,3,2}
+local jokerIndexList = {5,6,3,7,1,8,2,4}
 
 local function load_jokers_folder()
     local mod_path = SMODS.current_mod.path
@@ -83,7 +83,7 @@ local function load_jokers_folder()
 end
 
 
-local consumableIndexList = {5,4,6,3,1,2}
+local consumableIndexList = {2,1,3}
 
 local function load_consumables_folder()
     local mod_path = SMODS.current_mod.path
@@ -124,7 +124,7 @@ local function load_seals_folder()
 end
 
 
-local voucherIndexList = {1,2,3}
+local voucherIndexList = {1}
 
 local function load_vouchers_folder()
     local mod_path = SMODS.current_mod.path
@@ -166,7 +166,6 @@ local function load_boosters_file()
 end
 
 load_boosters_file()
-assert(SMODS.load_file("sounds.lua"))()
 load_jokers_folder()
 load_consumables_folder()
 load_seals_folder()
@@ -202,8 +201,6 @@ SMODS.ObjectType({
 SMODS.ObjectType({
     key = "jokergal_jokergal_jokers",
     cards = {
-        ["j_jokergal_chult"] = true,
-        ["j_jokergal_coin"] = true,
         ["j_jokergal_jester"] = true
     },
 })
