@@ -12,7 +12,7 @@ SMODS.Joker{ --The Beckoning
         ['name'] = 'The Beckoning',
         ['text'] = {
             [1] = '{C:red}#1#X{} Blind Size When A Boss Is Defeated.',
-            [2] = '{C:inactive,s:0.9}Antes Survived:#3# {}'
+            [2] = '{C:inactive,s:0.9}Antes Survived: #3# {}'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
