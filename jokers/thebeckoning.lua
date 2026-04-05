@@ -71,19 +71,37 @@ SMODS.Joker{ --The Beckoning
             }
         end
         if context.setting_blind  then
-            return {
-                
-                func = function()
-                    if G.GAME.blind.in_blind then
-                        
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "X"..tostring(card.ability.extra.Size).." Blind Size", colour = G.C.GREEN})
-                        G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.Size
-                        G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
-                        G.HUD_blind:recalculate()
+            if (to_big(G.GAME.blind.config.blind.key) == to_big("bl_psychic") and (G.GAME.pool_flags.jokergal_disable or false)) then
+                return {
+                    func = function()
+                        if G.GAME.blind and G.GAME.blind.boss and not G.GAME.blind.disabled then
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    G.GAME.blind:disable()
+                                    play_sound('timpani')
+                                    return true
+                                end
+                            }))
+                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Run Saved!", colour = G.C.GREEN})
+                        end
                         return true
                     end
-                end
-            }
+                }
+            else
+                return {
+                    
+                    func = function()
+                        if G.GAME.blind.in_blind then
+                            
+                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "X"..tostring(card.ability.extra.Size).." Blind Size", colour = G.C.GREEN})
+                            G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.Size
+                            G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+                            G.HUD_blind:recalculate()
+                            return true
+                        end
+                    end
+                }
+            end
         end
     end
 }

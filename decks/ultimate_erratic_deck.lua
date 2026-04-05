@@ -29,7 +29,7 @@ SMODS.Back {
                     local seal_pool = {'Gold', 'Red', 'Blue', 'Purple'}
                     local random_seal = pseudorandom_element(seal_pool, 'random_seal')
                     v:set_seal(random_seal, nil, true)
-                    local edition = pseudorandom_element({'e_foil','e_holo','e_polychrome','e_negative'}, 'random edition')
+                    local edition = pseudorandom_element({'e_foil','e_holo','e_polychrome','e_negative','e_jokergal_robert'}, 'random edition')
                     v:set_edition(edition, true, true)
                     local _suit = pseudorandom_element(SMODS.Suits, 'random_suit')
                     assert(SMODS.change_base(v, _suit.key))

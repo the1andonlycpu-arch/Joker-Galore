@@ -7,7 +7,8 @@ SMODS.Joker{ --Jeans
             Increases = 0,
             Inc1 = 0,
             inc2 = 0,
-            Int = 0.5
+            Int = 0.5,
+            odds = 20
         }
     },
     loc_txt = {
@@ -15,7 +16,7 @@ SMODS.Joker{ --Jeans
         ['text'] = {
             [1] = '{X:blue,C:white}#1#X{} Chips. Increase by {X:blue,C:white}#5#X{} every {C:inactive}(#3#/2) {}rounds.',
             [2] = 'All values gets multiplied by {X:blue,C:white}1.25X{} every {C:inactive}(#4#/2){} increases.',
-            [3] = '{C:rare}Resets if score is on fire{}'
+            [3] = '{C:uncommon}#6# in #7# {} chance to {C:rare}reset{}'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -41,14 +42,18 @@ SMODS.Joker{ --Jeans
     
     loc_vars = function(self, info_queue, card)
         
-        return {vars = {card.ability.extra.xChips, card.ability.extra.Increases, card.ability.extra.Inc1, card.ability.extra.inc2, card.ability.extra.Int}}
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_jokergal_jeans') 
+        return {vars = {card.ability.extra.xChips, card.ability.extra.Increases, card.ability.extra.Inc1, card.ability.extra.inc2, card.ability.extra.Int, new_numerator, new_denominator}}
     end,
     
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
-            if to_big(G.GAME.chips / G.GAME.blind.chips) > to_big(1) then
-                card.ability.extra.xChips = 3
-                card.ability.extra.Int = 0.5
+            if true then
+                if SMODS.pseudorandom_probability(card, 'group_0_cdaade87', 1, card.ability.extra.odds, 'j_jokergal_jeans', false) then
+                    card.ability.extra.xChips = 3
+                    card.ability.extra.Int = 0.5
+                    
+                end
             else
                 return {
                     x_chips = card.ability.extra.xChips

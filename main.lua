@@ -60,7 +60,7 @@ local NFS = require("nativefs")
 to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
-local jokerIndexList = {10,11,8,12,1,13,6,9,5,4,7,2,3}
+local jokerIndexList = {11,12,8,14,1,15,6,9,10,5,4,7,2,3,13}
 
 local function load_jokers_folder()
     local mod_path = SMODS.current_mod.path
@@ -116,6 +116,21 @@ local function load_seals_folder()
 end
 
 
+local editionIndexList = {1}
+
+local function load_editions_folder()
+    local mod_path = SMODS.current_mod.path
+    local editions_path = mod_path .. "/editions"
+    local files = NFS.getDirectoryItemsInfo(editions_path)
+    for i = 1, #editionIndexList do
+        local file_name = files[editionIndexList[i]].name
+        if file_name:sub(-4) == ".lua" then
+            assert(SMODS.load_file("editions/" .. file_name))()
+        end
+    end
+end
+
+
 local deckIndexList = {3,1,2,4,5}
 
 local function load_decks_folder()
@@ -147,6 +162,7 @@ assert(SMODS.load_file("sounds.lua"))()
 load_jokers_folder()
 load_consumables_folder()
 load_seals_folder()
+load_editions_folder()
 load_decks_folder()
 SMODS.ObjectType({
     key = "jokergal_food",
@@ -181,8 +197,10 @@ SMODS.ObjectType({
         ["j_jokergal_bigbrainsusie"] = true,
         ["j_jokergal_chult"] = true,
         ["j_jokergal_coin"] = true,
-        ["j_jokergal_filler"] = true,
-        ["j_jokergal_jester"] = true
+        ["j_jokergal_handssans"] = true,
+        ["j_jokergal_jester"] = true,
+        ["j_jokergal_jester2"] = true,
+        ["j_jokergal_mech"] = true
     },
 })
 

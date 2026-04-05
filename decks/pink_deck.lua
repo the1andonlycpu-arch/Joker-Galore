@@ -57,6 +57,15 @@ SMODS.Back {
                 return true
             end
         }))
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                card_eval_status_text(self, 'extra', nil, nil, nil, {message = "disable", colour = G.C.BLUE})
+                G.GAME.pool_flags.jokergal_disable = true
+                return true
+            end
+        }))
         return {
             
             G.E_MANAGER:add_event(Event({
