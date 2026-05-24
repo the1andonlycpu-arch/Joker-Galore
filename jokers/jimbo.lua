@@ -61,7 +61,7 @@ SMODS.Joker{ --Jimbo
                     func = function()
                         
                         local current_dollars = G.GAME.dollars
-                        local target_dollars = G.GAME.dollars + card.ability.extra.Mon
+                        local target_dollars = G.GAME.dollars + card.ability.extra.Mon - 1
                         local dollar_value = target_dollars - current_dollars
                         ease_dollars(dollar_value)
                         card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "+"..tostring(card.ability.extra.Mon), colour = G.C.MONEY})

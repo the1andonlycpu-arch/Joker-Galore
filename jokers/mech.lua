@@ -32,8 +32,8 @@ SMODS.Joker{ --Mech
         }
     },
     pos = {
-        x = 4,
-        y = 1
+        x = 0,
+        y = 0
     },
     display_size = {
         w = 71 * 1, 
@@ -47,7 +47,7 @@ SMODS.Joker{ --Mech
     unlocked = true,
     discovered = true,
     atlas = 'CustomJokers',
-    pools = { ["jokergal_jokergal_jokers"] = true },
+    pools = { ["modprefix_jokergal_jokers"] = true },
     
     loc_vars = function(self, info_queue, card)
         
@@ -58,48 +58,48 @@ SMODS.Joker{ --Mech
         if context.end_of_round and context.game_over == false and context.main_eval  then
             return {
                 func = function()
-                    card.ability.extra.M1 = (card.ability.extra.M1) + 1
+                    card.ability.extra.M1 = (card.ability.extra.M1) + 1000
                     return true
                 end,
                 extra = {
                     func = function()
-                        card.ability.extra.C1 = (card.ability.extra.C1) + 10
+                        card.ability.extra.C1 = (card.ability.extra.C1) + 10000
                         return true
                     end,
                     colour = G.C.GREEN,
                     extra = {
                         func = function()
-                            card.ability.extra.M2 = (card.ability.extra.M2) + 0.25
+                            card.ability.extra.M2 = (card.ability.extra.M2) + 250
                             return true
                         end,
                         colour = G.C.GREEN,
                         extra = {
                             func = function()
-                                card.ability.extra.C2 = (card.ability.extra.C2) + 0.1
+                                card.ability.extra.C2 = (card.ability.extra.C2) + 100
                                 return true
                             end,
                             colour = G.C.GREEN,
                             extra = {
                                 func = function()
-                                    card.ability.extra.M3 = (card.ability.extra.M3) + 0.02
+                                    card.ability.extra.M3 = (card.ability.extra.M3) + 20
                                     return true
                                 end,
                                 colour = G.C.GREEN,
                                 extra = {
                                     func = function()
-                                        card.ability.extra.C3 = (card.ability.extra.C3) + 0.01
+                                        card.ability.extra.C3 = (card.ability.extra.C3) + 10
                                         return true
                                     end,
                                     colour = G.C.GREEN,
                                     extra = {
                                         func = function()
-                                            card.ability.extra.M4 = (card.ability.extra.M4) + 0.005
+                                            card.ability.extra.M4 = (card.ability.extra.M4) + 5
                                             return true
                                         end,
                                         colour = G.C.GREEN,
                                         extra = {
                                             func = function()
-                                                card.ability.extra.C4 = (card.ability.extra.C4) + 0.002
+                                                card.ability.extra.C4 = (card.ability.extra.C4) + 2
                                                 return true
                                             end,
                                             colour = G.C.GREEN

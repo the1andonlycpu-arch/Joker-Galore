@@ -30,7 +30,7 @@ SMODS.Edition {
     end,
     
     calculate = function(self, card, context)
-        if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
+        if (context.pre_joker or (context.main_scoring and context.cardarea == G.play)) then
             return {
                 mult = 10,
                 extra = {

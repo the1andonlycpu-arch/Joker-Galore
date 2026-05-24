@@ -1,19 +1,22 @@
 
-SMODS.Joker{ --Jester 2?
+SMODS.Joker{ --Jester^2
     key = "jester2",
     config = {
         extra = {
             Prog = 0,
-            RoundsReq = 3,
-            x = 4
+            RoundsReq = 2,
+            x = 4,
+            power = 2,
+            Time = 1,
+            ProgressInt = 1
         }
     },
     loc_txt = {
-        ['name'] = 'Jester 2?',
+        ['name'] = 'Jester^2',
         ['text'] = {
-            [1] = 'Creates a {C:dark_edition}Negative{} {C:legendary}Jester{} Every {C:attention}x^2 {}{C:inactive}(#3#){} rounds.',
+            [1] = 'Creates a {C:dark_edition}Negative{} {C:legendary}Jester{} Every {C:attention}x^#4# {}{C:inactive}(#3#){} rounds.',
             [2] = 'Where x is {C:attention}#2# {}',
-            [3] = 'x increase\'s by {C:attention}1{} when {C:legendary}Jester{}',
+            [3] = 'x increase\'s by {C:attention}#5# {} when {C:legendary}Jester{}',
             [4] = 'Is created by {C:attention}this{} joker.',
             [5] = '{C:inactive,s:1.1}(#1#/#3#){}'
         },
@@ -41,7 +44,7 @@ SMODS.Joker{ --Jester 2?
     
     loc_vars = function(self, info_queue, card)
         
-        return {vars = {card.ability.extra.Prog, card.ability.extra.RoundsReq, card.ability.extra.x}}
+        return {vars = {card.ability.extra.Prog, card.ability.extra.RoundsReq, card.ability.extra.x, card.ability.extra.power, card.ability.extra.Time, card.ability.extra.ProgressInt}}
     end,
     
     calculate = function(self, card, context)
@@ -49,7 +52,7 @@ SMODS.Joker{ --Jester 2?
             if not (to_big((card.ability.extra.Prog or 0)) >= to_big(card.ability.extra.x)) then
                 return {
                     func = function()
-                        card.ability.extra.Prog = (card.ability.extra.Prog) + 1
+                        card.ability.extra.Prog = (card.ability.extra.Prog) + card.ability.extra.ProgressInt
                         return true
                     end
                 }
@@ -62,7 +65,7 @@ SMODS.Joker{ --Jester 2?
                     end,
                     extra = {
                         func = function()
-                            card.ability.extra.RoundsReq = (card.ability.extra.RoundsReq) + 1
+                            card.ability.extra.RoundsReq = (card.ability.extra.RoundsReq) + card.ability.extra.Time
                             return true
                         end,
                         colour = G.C.GREEN,
@@ -74,7 +77,7 @@ SMODS.Joker{ --Jester 2?
                             colour = G.C.BLUE,
                             extra = {
                                 func = function()
-                                    card.ability.extra.x = (card.ability.extra.x) ^ 2
+                                    card.ability.extra.x = (card.ability.extra.x) ^ card.ability.extra.power
                                     return true
                                 end,
                                 colour = G.C.BLUE,

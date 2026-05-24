@@ -4,7 +4,7 @@ SMODS.Back {
     pos = { x = 0, y = 0 },
     config = {
         extra = {
-            all_blinds_size0 = 3,
+            all_blinds_size0 = 1,
             play_size0 = 1,
             ante_value0 = 1
         },
@@ -16,6 +16,7 @@ SMODS.Back {
             [2] = '{C:red}-1{} Card Selection Limit'
         },
     },
+
     unlocked = true,
     discovered = true,
     no_collection = false,
@@ -35,7 +36,7 @@ SMODS.Back {
     apply = function(self, back)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.GAME.starting_params.ante_scaling = G.GAME.starting_params.ante_scaling / 3
+                G.GAME.starting_params.ante_scaling = G.GAME.starting_params.ante_scaling * 1/3
                 return true
             end
         }))
@@ -48,7 +49,7 @@ SMODS.Back {
                 play_sound('timpani')
                 if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
                     G.GAME.joker_buffer = G.GAME.joker_buffer + 1
-                    local new_joker = SMODS.add_card({ set = 'Joker', key = 'j_jokergal_thebeckoning' })
+                    local new_joker = SMODS.add_card({ set = 'Joker', key = 'j_jokergal_bigbrainsusie' })
                     if new_joker then
                         new_joker:set_edition("e_negative", true)
                     end
@@ -72,7 +73,7 @@ SMODS.Back {
                 func = function()
                     
                     
-                    SMODS.change_play_limit(-1)
+                    SMODS.change_play_limit(0)
                     return true
                 end
             }))

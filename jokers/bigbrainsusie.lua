@@ -3,7 +3,7 @@ SMODS.Joker{ --Big brain susie
     key = "bigbrainsusie",
     config = {
         extra = {
-            abc = 0
+            abc = 0,
         }
     },
     loc_txt = {
@@ -60,7 +60,7 @@ SMODS.Joker{ --Big brain susie
                             local created_joker = true
                             G.E_MANAGER:add_event(Event({
                                 func = function()
-                                    local joker_card = SMODS.add_card({ set = 'Joker', key = 'j_jokergal_bstorm' })
+                                    local joker_card = SMODS.add_card({ set = 'Joker', key = 'j_brainstorm' })
                                     if joker_card then
                                         joker_card:set_edition("e_negative", true)
                                         
@@ -77,7 +77,7 @@ SMODS.Joker{ --Big brain susie
                         end,
                         colour = G.C.BLUE
                     }
-                }
+              }
             end
         end
     end

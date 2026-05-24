@@ -42,3 +42,18 @@ SMODS.Rarity {
         return weight
     end,
 }
+
+SMODS.Rarity {
+    key = "commoner",
+    pools = {
+        ["Joker"] = true
+    },
+    default_weight = 0.8,
+    badge_colour = HEX('23aeae'),
+    loc_txt = {
+        name = "Commoner"
+    },
+    get_weight = function(self, weight, object_type)
+        return weight
+    end,
+}

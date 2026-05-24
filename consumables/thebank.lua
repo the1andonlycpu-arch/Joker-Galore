@@ -22,7 +22,7 @@ SMODS.Consumable {
     atlas = 'CustomConsumables',
     use = function(self, card, area, copier)
         local used_card = copier or card
-        for i = 1, 2 do
+        for i = 0, 2 do
             for i = 1, math.min(1, G.consumeables.config.card_limit - #G.consumeables.cards) do
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after',

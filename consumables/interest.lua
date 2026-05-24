@@ -5,7 +5,7 @@ SMODS.Consumable {
     pos = { x = 1, y = 0 },
     config = { 
         extra = {
-            money÷5 = 0   
+        money = 0   
         } 
     },
     loc_txt = {
