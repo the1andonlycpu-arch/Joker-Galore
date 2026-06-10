@@ -1,3 +1,3 @@
 # Joker-Galore
-A balatro mod|
-(PLANING ON DISCONTINUing)
+A balatro mod
+
